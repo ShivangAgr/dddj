@@ -1,4 +1,5 @@
 import 'package:dddj/component/button_with_icon.dart';
+import 'package:dddj/services/dad_jokes_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -10,14 +11,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String dadJoke = "Press shuffle to begin";
+  String dadJoke = "";
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDadJoke();
+  }
 
   void fetchDadJoke() async {
-    // TODO Call icanhazdadjoke API
-    // TODO Check status code
-    // TODO Parse the JSON response
-    // TODO Extract data from parse object
-    // TODO Update state to display joke
+    // Fetch new dad joke from icanhazdadjoke API
+    String newDadJoke = await DadJokesHelper.fetchDadJoke();
+    // Update state to display fetched joke
+    setState(() {
+      dadJoke = newDadJoke;
+    });
   }
 
   void onPressShuffle() {
