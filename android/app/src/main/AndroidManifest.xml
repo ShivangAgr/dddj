@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shivangagr.dddj">
    <application
-        android:label="dddj"
+        android:label="DDDJ"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -31,4 +31,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <!-- Required to fetch data from the internet. -->
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
